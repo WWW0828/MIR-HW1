@@ -38,7 +38,6 @@
     - 自己建構 (比較進階)
 - Data-driven template
     - 可以用giant dataset來挖
-
 - Step1
     - 算出 chromagram
 - Step2
