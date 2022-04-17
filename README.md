@@ -39,20 +39,29 @@
 - Data-driven template
     - 可以用giant dataset來挖
 
+- Step1
+    - 算出 chromagram
+- Step2
+    - 取每個 frame 的平均
+- Step3
+    - 找出最大值當作主音
+- Step4
+    - 對照 template 找出最有可能的大小調
+- Step5
+    - 計算精準度 (raw/weighted)
+
 ### Q1 (40%)
-Perform global key finding on the 9 genres in the GTZAN dataset using the feature settings of 1) STFT-based chromagram, 2) CQT chromagram and 3) CENS chromagram and the matching scheme of 1) binary-valued template matching, 2) K-S template matching, and 3) harmonic template matching (you may try 𝛼 = 0.9). Again, since there is no annotation in the classical genre, you don’t need to run that genre. Report the raw accuracy and weighted accuracy per genre and per method. Which genre achieves better performance and why? Which method appear to be more competitive and why? Discuss your results.
+Perform global key finding on the 9 genres in the GTZAN dataset using the feature settings of 
+1) STFT-based chromagram, 2) CQT chromagram and 3) CENS chromagram and the matching scheme of 1) binary-valued template matching, 2) K-S template matching, and 3) harmonic template matching (you may try 𝛼 = 0.9). Again, since there is no annotation in the classical genre, you don’t need to run that genre. Report the raw accuracy and weighted accuracy per genre and per method. Which genre achieves better performance and why? Which method appear to be more competitive and why? Discuss your results.
 - Hint: the chroma features can be obtained from the following functions:
-    -  librosa.feature.chroma_stft
+    - librosa.feature.chroma_stft
     - librosa.feature.chroma_cqt
     - librosa.feature.chroma_cens
-
 - 進 librosa 去用那三個template，做在 GTZAN 來算準確率
     - 調性對: O
     - 調性錯: X
     - random guess: 1/24
 - 觀察9種曲風哪個做的比較好
-
-
 | Relation to correct key | Points |
 | :----------------------- | :------ |
 |   正確                   |   1    |
@@ -75,7 +84,7 @@ Construct the templates for the 24 major/minor keys using the GiantStep dataset.
 Based on Task 1, design a local key detector that outputs the key of the music every 0.1 second. That means, there is a key detection output for every time step, and in this task, we set the time step be 0.1 second. Perform your method one the MIDI data and all the available audio versions of the Schubert Winterreise Dataset. For simplicity, let’s evaluate the results against the annotator 1. Report the raw accuracy and the weighted accuracy.
 - Hint: to get the local tonality feature, you may consider the mean-pooled chroma of a segment (maybe 30 seconds or so), not of the whole music piece. For example, the feature representing the local key at the 60th second can be obtained by summing up the chorma vectors from the 45th to the 75th second.You may try the optimal segment size empirically.
 ### Q5 (10%)
-The local key detection problem can be regarded as a segmentation problem. There has been evaluation metrics for the segmentation performance in the chord recognition problem, but such metrics have not been applied in local key detection. Please apply the over-segmentation, undersegmentation and average segmentation measures (please refer to the directional Hamming divergence and see page 33 in Lecture 3 slides) on the local key detection of the Schubert Winterreise Dataset.
+The local key detection problem can be regarded as a segmentation problem. There has been evaluation metrics for the segmentation performance in the chord recognition problem, but such metrics have not been applied in local key detection. Please apply the over-segmentation, under-segmentation and average segmentation measures (please refer to the directional Hamming divergence and see page 33 in Lecture 3 slides) on the local key detection of the Schubert Winterreise Dataset.
 - Hint: these metrics have been implemented somewhere in mir_eval.chord.
 
 ### Q6 (bonus)
