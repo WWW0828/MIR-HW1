@@ -50,8 +50,7 @@
     - 計算精準度 (raw/weighted)
 
 ### Q1 (40%)
-Perform global key finding on the 9 genres in the GTZAN dataset using the feature settings of 
-1) STFT-based chromagram, 2) CQT chromagram and 3) CENS chromagram and the matching scheme of 1) binary-valued template matching, 2) K-S template matching, and 3) harmonic template matching (you may try 𝛼 = 0.9). Again, since there is no annotation in the classical genre, you don’t need to run that genre. Report the raw accuracy and weighted accuracy per genre and per method. Which genre achieves better performance and why? Which method appear to be more competitive and why? Discuss your results.
+Perform global key finding on the 9 genres in the GTZAN dataset using the feature settings of 1) STFT-based chromagram, 2) CQT chromagram and 3) CENS chromagram and the matching scheme of 1) binary-valued template matching, 2) K-S template matching, and 3) harmonic template matching (you may try 𝛼 = 0.9). Again, since there is no annotation in the classical genre, you don’t need to run that genre. Report the raw accuracy and weighted accuracy per genre and per method. Which genre achieves better performance and why? Which method appear to be more competitive and why? Discuss your results.
 - Hint: the chroma features can be obtained from the following functions:
     - librosa.feature.chroma_stft
     - librosa.feature.chroma_cqt
