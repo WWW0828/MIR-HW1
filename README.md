@@ -62,6 +62,7 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
     - 調性錯: X
     - random guess: 1/24
 - 觀察9種曲風哪個做的比較好
+
 | Relation to correct key | Points |
 | :----------------------- | :------ |
 |   正確                   |   1    |
