@@ -2,18 +2,25 @@
 11020 Music Information Retrieval, Su Li (Academia Sinica)
 Homework 1 Global key and local key detection of audio and symbolic music
 
+## Prerequisite:
+- The following libraries are suggested for this assignment:
+    1. [librosa](https://librosa.org/doc/latest/index.html), a Python library for music and audio signal processing:
+    2. [pretty-midi](http://craffel.github.io/pretty-midi/), a Python library for MIDI signal processing:
+    3. [mir_eval](https://craffel.github.io/mir_eval/), a Python library for MIR evaluation:
+
 ## Dataset
-### GTZAN Dataset
-- 有10種不同曲風，各100首(30 sec 片段，沒頭沒尾)
-- classical 沒給 annotation，其他9種都有，所以管那九種就好
-- A Major: 0, #A Major: 1 ...
+[Download Here](https://drive.google.com/drive/folders/1eS_UUX2MrEbEeTVmiDZwIrSW5VBamNrX)
+1. GTZAN Dataset
+    - 有10種不同曲風，各100首(30 sec 片段，沒頭沒尾)
+    - classical 沒給 annotation，其他9種都有，所以管那九種就好
+    - A Major: 0, #A Major: 1 ...
 
-### Schubert Wintereise Dataset (SWD)
-- 德國 Audio Lab 蒐集所有譜，轉成 MIDI，全部都有做 annotation 
-- (有9個版本-可以使用其中4個)
+2. Schubert Wintereise Dataset (SWD)
+    - 德國 Audio Lab 蒐集所有譜，轉成 MIDI，全部都有做 annotation 
+    - (有9個版本-可以使用其中4個)
 
-### The GiantStep Dataset
-- training data
+3. The GiantStep Dataset
+    - training data
 
 
 ## Task 1: Global key detection based on template matching
