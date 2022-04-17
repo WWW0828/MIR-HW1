@@ -1,5 +1,7 @@
 # MIR-HW1
-11020 Music Information Retrieval, Su Li (Academia Sinica) - Homework 1 Global key and local key detection of audio and symbolic music
+11020 Music Information Retrieval, Su Li (Academia Sinica)
+Homework 1 Global key and local key detection of audio and symbolic music
+
 ## Dataset
 ### GTZAN Dataset
 - 有10種不同曲風，各100首(30 sec 片段，沒頭沒尾)
