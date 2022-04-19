@@ -62,11 +62,13 @@ for g in genres:
             for i,ks in enumerate(template.KS_major_template):
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r or i == 0:
+                    max_r = r
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
 
             for i,ks in enumerate(template.KS_minor_template):
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r:
+                    max_r = r
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
 
 

@@ -63,12 +63,14 @@ for g in genres:
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r or i == 0:
                     max_bin = i
+                    max_r = r
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
 
             for i,ks in enumerate(template.HM_minor_template):
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r or (r == max_r and bin_avg[i] > bin_avg[max_bin]):
                     max_bin = i
+                    max_r = r
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
 
 
