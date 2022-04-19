@@ -11,7 +11,9 @@ scores_stft = []
 scores_cqt = []
 scores_cens = []
 
-for g in genres:
+for g_id, g in enumerate(genres):
+
+    print('- [{}]'.format(g))
 
     folder_path = "GTZAN/wav/" + g
     files = listdir(folder_path)
@@ -21,18 +23,15 @@ for g in genres:
 
     for file_id, f in enumerate(files):
 
-        print('file:{:03d}'.format(file_id))
         skip = False
         ans_str = ''
         with open('GTZAN/key/{genre}/{genre}.{id:05d}.lerch.txt'.format(genre = g, id = file_id)) as anstxt:
             ans_tonic = int(anstxt.readline())
             if ans_tonic not in range(24):
                 skip = True
-                print('skip')
                 num_of_file -= 1
             else:
                 ans_str = template.eval_tonic[ans_tonic]
-                print('ans:', ans_str)
         
         if skip:
             continue
@@ -75,23 +74,14 @@ for g in genres:
 
 
             if id == 0:
-                print('stft:', tonic_str, end = ', ')
                 score_stft += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             elif id == 1:
-                print(' cqt:', tonic_str, end = ', ')
                 score_cqt += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             else:
-                print('cens:', tonic_str, end = '')
                 score_cens += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
-            
-        print()
-        print('score: stft {}, cqt {}, cens {}'.format(score_stft, score_cqt, score_cens))
-
+    
     scores_stft.append(score_stft/num_of_file)
     scores_cqt.append(score_cqt/num_of_file)
     scores_cens.append(score_cens/num_of_file)   
-    
-    print(g, ':')
-    print(scores_stft, scores_cqt, scores_cens) 
- 
-    break
+        
+    print('score: stft {}, cqt {}, cens {}'.format(scores_stft[g_id], scores_cqt[g_id], scores_cens[g_id]))
