@@ -3,21 +3,17 @@ import mir_eval
 import scipy
 import numpy as np
 from os import listdir
+import template
 
 genres = ["blues", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
+
 minor = {0: 9, 1: 10, 2: 11, 3: 0, 4: 1, 5: 2, 6: 3, 7: 4, 8: 5, 9: 6, 10: 7, 11: 8}
 major = {0: 3, 1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 9, 7: 10, 8: 11, 9: 0, 10: 1, 11: 2}
+
 tonic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'major', 'minor']
 eval_tonic = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'major', 'minor']
 
-#   0   1  2   3  4  5   6  7   8  9  10  11
-# [ C, C#, D, D#, E, F, F#, G, G#, A, A#, B ]
-binary_template = [[1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
-                   [0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0],
-                   [0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-                   [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1], [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-                   [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0], [0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
-                   [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0], [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1]]
+
 
 scores_stft = []
 scores_cqt = []
@@ -72,7 +68,8 @@ for g in genres:
             
             # calculate R
             # find biggest R
-            for i,bt in enumerate(binary_template):
+
+            for i,bt in enumerate(template.binary_template):
                 r = scipy.stats.pearsonr(bin_avg, bt)[0]
                 if r > max_r or i == 0:
                     max_r = r
