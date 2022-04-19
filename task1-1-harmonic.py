@@ -69,31 +69,30 @@ for g in genres:
             # calculate R
             # find biggest R
 
-            for i,bt in enumerate(template.binary_template):
+            tonic_str = ''
+            for i,bt in enumerate(template.KS_major_template):
                 r = scipy.stats.pearsonr(bin_avg, bt)[0]
                 if r > max_r or i == 0:
-                    max_r = r
-                    max_bin = i
+                    tonic_str = tonic[i] + ' ' + tonic[-2]
 
-            tonic_str = ''
-            # check energy of M and m
-            if bin_avg[minor[max_bin]] > bin_avg[max_bin]:
-                tonic_str = tonic[minor[max_bin]] + ' ' + tonic[-1]
-            else:
-                tonic_str = tonic[max_bin] + ' ' + tonic[-2]
+            for i,bt in enumerate(template.KS_minor_template):
+                r = scipy.stats.pearsonr(bin_avg, bt)[0]
+                if r > max_r:
+                    tonic_str = tonic[i] + ' ' + tonic[-1]
+
 
             if id == 0:
                 print('stft:', tonic_str, end = ', ')
-                score_stft += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_stft += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             elif id == 1:
                 print(' cqt:', tonic_str, end = ', ')
-                score_cqt += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_cqt += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             else:
                 print('cens:', tonic_str, end = '')
-                score_cens += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_cens += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             
         print()
-        print('score: stft:{}, cqt:{}, cens:{}'.format(score_stft, score_cqt, score_cens))
+        print('score: stft {}, cqt {}, cens {}'.format(score_stft, score_cqt, score_cens))
 
     scores_stft.append(score_stft/num_of_file)
     scores_cqt.append(score_cqt/num_of_file)

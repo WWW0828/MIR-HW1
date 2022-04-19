@@ -11,7 +11,10 @@ minor = {0: 9, 1: 10, 2: 11, 3: 0, 4: 1, 5: 2, 6: 3, 7: 4, 8: 5, 9: 6, 10: 7, 11
 major = {0: 3, 1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 9, 7: 10, 8: 11, 9: 0, 10: 1, 11: 2}
 
 tonic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'major', 'minor']
-eval_tonic = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'major', 'minor']
+eval_tonic = ['A major', 'A# major', 'B major', 'C major', 'C# major', 'D major',
+              'D# major', 'E major', 'F major', 'F# major', 'G major', 'G# major',
+              'A minor', 'A# minor', 'B minor', 'C minor', 'C# minor', 'D minor',
+              'D# minor', 'E minor', 'F minor', 'F# minor', 'G minor', 'G# minor']
 
 
 
@@ -38,11 +41,8 @@ for g in genres:
                 skip = True
                 print('skip')
                 num_of_file -= 1
-
-            if ans_tonic >= 12:
-                ans_str = eval_tonic[ans_tonic - 12] + ' ' + eval_tonic[-1]
-            else:
-                ans_str = eval_tonic[ans_tonic] + ' ' + eval_tonic[-2]
+                break
+            ans_str = eval_tonic[ans_tonic]
             print('ans:', ans_str)
         
         if skip:
@@ -70,29 +70,29 @@ for g in genres:
             # find biggest R
 
             tonic_str = ''
-            for i,bt in enumerate(template.KS_major_template):
-                r = scipy.stats.pearsonr(bin_avg, bt)[0]
+            for i,ks in enumerate(template.KS_major_template):
+                r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r or i == 0:
                     tonic_str = tonic[i] + ' ' + tonic[-2]
 
-            for i,bt in enumerate(template.KS_minor_template):
-                r = scipy.stats.pearsonr(bin_avg, bt)[0]
+            for i,ks in enumerate(template.KS_minor_template):
+                r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r:
                     tonic_str = tonic[i] + ' ' + tonic[-1]
 
 
             if id == 0:
                 print('stft:', tonic_str, end = ', ')
-                score_stft += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_stft += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             elif id == 1:
                 print(' cqt:', tonic_str, end = ', ')
-                score_cqt += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_cqt += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             else:
                 print('cens:', tonic_str, end = '')
-                score_cens += mir_eval.key.evaluate(tonic_str, ans_str)['Weighted Score']
+                score_cens += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
             
         print()
-        print('score: stft:{}, cqt:{}, cens:{}'.format(score_stft, score_cqt, score_cens))
+        print('score: stft {}, cqt {}, cens {}'.format(score_stft, score_cqt, score_cens))
 
     scores_stft.append(score_stft/num_of_file)
     scores_cqt.append(score_cqt/num_of_file)
