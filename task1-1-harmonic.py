@@ -59,14 +59,16 @@ for g in genres:
             # find biggest R
 
             tonic_str = ''
-            for i,ks in enumerate(template.KS_major_template):
+            for i,ks in enumerate(template.HM_major_template):
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
                 if r > max_r or i == 0:
+                    max_bin = i
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
 
-            for i,ks in enumerate(template.KS_minor_template):
+            for i,ks in enumerate(template.HM_minor_template):
                 r = scipy.stats.pearsonr(bin_avg, ks)[0]
-                if r > max_r:
+                if r > max_r or (r == max_r and bin_avg[i] > bin_avg[max_bin]):
+                    max_bin = i
                     tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
 
 
