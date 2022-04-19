@@ -1,3 +1,13 @@
+minor = {0: 9, 1: 10, 2: 11, 3: 0, 4: 1, 5: 2, 6: 3, 7: 4, 8: 5, 9: 6, 10: 7, 11: 8}
+major = {0: 3, 1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 9, 7: 10, 8: 11, 9: 0, 10: 1, 11: 2}
+flat2sharp = {}
+
+tonic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'major', 'minor']
+eval_tonic = ['A major', 'A# major', 'B major', 'C major', 'C# major', 'D major',
+              'D# major', 'E major', 'F major', 'F# major', 'G major', 'G# major',
+              'A minor', 'A# minor', 'B minor', 'C minor', 'C# minor', 'D minor',
+              'D# minor', 'E minor', 'F minor', 'F# minor', 'G minor', 'G# minor']
+
 binary_template = [[1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1], [1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
                    [0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0],
                    [0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1], [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],

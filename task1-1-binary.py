@@ -7,17 +7,6 @@ import template
 
 genres = ["blues", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"]
 
-minor = {0: 9, 1: 10, 2: 11, 3: 0, 4: 1, 5: 2, 6: 3, 7: 4, 8: 5, 9: 6, 10: 7, 11: 8}
-major = {0: 3, 1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 9, 7: 10, 8: 11, 9: 0, 10: 1, 11: 2}
-
-tonic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'major', 'minor']
-eval_tonic = ['A major', 'A# major', 'B major', 'C major', 'C# major', 'D major',
-              'D# major', 'E major', 'F major', 'F# major', 'G major', 'G# major',
-              'A minor', 'A# minor', 'B minor', 'C minor', 'C# minor', 'D minor',
-              'D# minor', 'E minor', 'F minor', 'F# minor', 'G minor', 'G# minor']
-
-
-
 scores_stft = []
 scores_cqt = []
 scores_cens = []
@@ -42,7 +31,7 @@ for g in genres:
                 print('skip')
                 num_of_file -= 1
             else:
-                ans_str = eval_tonic[ans_tonic]
+                ans_str = template.eval_tonic[ans_tonic]
                 print('ans:', ans_str)
         
         if skip:
@@ -76,10 +65,10 @@ for g in genres:
 
             tonic_str = ''
             # check energy of M and m
-            if bin_avg[minor[max_bin]] > bin_avg[max_bin]:
-                tonic_str = tonic[minor[max_bin]] + ' ' + tonic[-1]
+            if bin_avg[template.minor[max_bin]] > bin_avg[max_bin]:
+                tonic_str = template.tonic[template.minor[max_bin]] + ' ' + template.tonic[-1]
             else:
-                tonic_str = tonic[max_bin] + ' ' + tonic[-2]
+                tonic_str = template.tonic[max_bin] + ' ' + template.tonic[-2]
 
             if id == 0:
                 print('stft:', tonic_str, end = ', ')
