@@ -1,7 +1,7 @@
 # MIR-HW1
 - 11020 Music Information Retrieval, Su Li (Academia Sinica)
 - Homework 1 Global key and local key detection of audio and symbolic music
-- I have no idea how to start
+
 ## Prerequisite:
 - The following libraries are suggested for this assignment:
     1. [librosa](https://librosa.org/doc/latest/index.html), a Python library for music and audio signal processing:
