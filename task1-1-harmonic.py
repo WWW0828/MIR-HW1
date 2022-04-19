@@ -93,5 +93,5 @@ for g in genres:
     
     print(g, ':')
     print(scores_stft, scores_cqt, scores_cens) 
-
+ 
     break
