@@ -1,3 +1,3 @@
 import librosa
-import pretty-midi
+import pretty_midi
 import mir_eval

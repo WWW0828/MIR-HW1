@@ -30,8 +30,8 @@ for v_id, v in enumerate(versions):
 
     for file_id, f in enumerate(files):
    
-        y, sr = librosa.load(folder_path + '/' + f)
-        print('load success !!')
+        y, sr = librosa.load('{folder}/{file}'.format(folder = folder_path, file = f))
+        
         feature_stft = librosa.feature.chroma_stft(y = y, sr = sr)
         feature_cqt = librosa.feature.chroma_cqt(y = y, sr = sr)
         feature_cens = librosa.feature.chroma_cens(y = y, sr = sr)

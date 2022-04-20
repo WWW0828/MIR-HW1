@@ -36,7 +36,7 @@ for g_id, g in enumerate(genres):
         if skip:
             continue
 
-        y, sr = librosa.load(folder_path + '/' + f)
+        y, sr = librosa.load('{folder}/{file}'.format(folder = folder_path, file = f))
         
         feature_stft = librosa.feature.chroma_stft(y = y, sr = sr)
         feature_cqt = librosa.feature.chroma_cqt(y = y, sr = sr)
