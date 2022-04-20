@@ -100,6 +100,8 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 
 - Harmonic Template
 
+| genres|stft score|cqt score|cens score|
+|-------|----------|---------|----------|
 |blues|0.184694|0.252041|0.197959|
 |country|0.811111|0.573737|0.636364|
 |disco|0.512245|0.464286|0.427551|
