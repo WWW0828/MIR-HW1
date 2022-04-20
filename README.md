@@ -71,6 +71,7 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 
 #### Result
 - Binary Template
+
 | genres|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
 |blues|0.112245|0.174490|0.170408|
@@ -84,6 +85,7 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 |rock|0.558163|0.581633|0.558163|
 
 - KS Template
+
 | genres|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
 |blues|0.326531|0.334694|0.286735|
@@ -97,6 +99,7 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 |rock|0.592857|0.685714|0.673469|
 
 - Harmonic Template
+
 |blues|0.184694|0.252041|0.197959|
 |country|0.811111|0.573737|0.636364|
 |disco|0.512245|0.464286|0.427551|
@@ -112,7 +115,7 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 - Hint: for symbolic data, you may use pretty_midi.Instrument.get_chroma to get the chroma vector.
 - Problem
     - `librosa.load` doesn't support mp3 files
-    
+
 ### Q3 (bonus)
 Construct the templates for the 24 major/minor keys using the GiantStep dataset. There are many possible ways to construct the templates. There can also be multiple templates for each key. For example, the template of D major can be constructed by taking the average over all chroma vectors annotated as D major in the dataset. We can also take the 𝑘-means algorithm over these chroma vectors to obtain 𝑘 templates for D major. For the keys not in the dataset, you may consider constructing them by circular shifting from the existing keys. Perform global key finding on the GTZAN dataset using the data-driven template. Does this method benefit some genres? Discuss your results.
 
