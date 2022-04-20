@@ -117,6 +117,16 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 - Hint: for symbolic data, you may use pretty_midi.Instrument.get_chroma to get the chroma vector.
 - Problem
     - `librosa.load` doesn't support mp3 files
+- Solve
+    - download ffmpeg package [here]()
+    - put the `FFmpeg` folder in `C:\`
+    - add `C:\FFmpeg\bin` to path (system variables)
+        - win + s
+        - search system variables
+        - system: path
+        - click New
+        - paste `C:\FFmpeg\bin`
+        - click OK
 
 #### Result
 - Binary Template
@@ -126,10 +136,10 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 
 |Version|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
-| FI66 | | | |
-| FI80 | | | |
-| HU33 | | | |
-| SC06 | | | |
+| FI66 | 0.512500 | 0.812500 | 0.783333 |
+| FI80 | 0.445833 | 0.645833 | 0.625000 |
+| HU33 | 0.625000 | 0.791667 | 0.741667 |
+| SC06 | 0.554167 | 0.754167 | 0.716667 |
 
 - KS Template
     - midi
@@ -138,10 +148,10 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 
 |Version|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
-| FI66 | | | |
-| FI80 | | | |
-| HU33 | | | |
-| SC06 | | | |
+| FI66 |  |  |  |
+| FI80 |  |  |  |
+| HU33 |  |  |  |
+| SC06 |  |  |  |
 
 - Harmonic Template
     - midi
@@ -150,10 +160,10 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 
 |Version|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
-| FI66 | | | |
-| FI80 | | | |
-| HU33 | | | |
-| SC06 | | | |
+| FI66 |  |  |  |
+| FI80 |  |  |  |
+| HU33 |  |  |  |
+| SC06 |  |  |  |
 
 ### Q3 (bonus)
 Construct the templates for the 24 major/minor keys using the GiantStep dataset. There are many possible ways to construct the templates. There can also be multiple templates for each key. For example, the template of D major can be constructed by taking the average over all chroma vectors annotated as D major in the dataset. We can also take the 𝑘-means algorithm over these chroma vectors to obtain 𝑘 templates for D major. For the keys not in the dataset, you may consider constructing them by circular shifting from the existing keys. Perform global key finding on the GTZAN dataset using the data-driven template. Does this method benefit some genres? Discuss your results.
