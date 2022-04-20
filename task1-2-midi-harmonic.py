@@ -40,18 +40,21 @@ for file_id, f in enumerate(files):
             
     # calculate R
     # find biggest R
-    for i,bt in enumerate(template.binary_template):
-        r = scipy.stats.pearsonr(bin_avg, bt)[0]
-        if r > max_r or i == 0:
-            max_r = r
-            max_bin = i
-
     tonic_str = ''
-    # check energy of M and m
-    if bin_avg[template.minor[max_bin]] > bin_avg[max_bin]:
-        tonic_str = template.tonic[template.minor[max_bin]] + ' ' + template.tonic[-1]
-    else:
-        tonic_str = template.tonic[max_bin] + ' ' + template.tonic[-2]
+    for i,ks in enumerate(template.HM_major_template):
+        r = scipy.stats.pearsonr(bin_avg, ks)[0]
+        if r > max_r or i == 0:
+            max_bin = i
+            max_r = r
+            tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
+
+    for i,ks in enumerate(template.HM_minor_template):
+        r = scipy.stats.pearsonr(bin_avg, ks)[0]
+        if r > max_r or (r == max_r and bin_avg[i] > bin_avg[max_bin]):
+            max_bin = i
+            max_r = r
+            tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
+
 
     score += mir_eval.key.evaluate(ans_list[file_id], tonic_str)['Weighted Score']
     
