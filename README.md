@@ -72,45 +72,45 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 #### Result
 - Binary Template
 
-| genres|stft score|cqt score|cens score|
-|-------|----------|---------|----------|
-|blues|0.112245|0.174490|0.170408|
-|country|0.683838|0.76868687|0.753535|
-|disco|0.451020|0.457143|0.481633|
-|hiphop|0.111111|0.185185|0.204938|
-|jazz|0.455696|0.430380|0.388608|
-|metal|0.155914|0.170968|0.201075|
-|pop|0.538298|0.439362|0.448936|
-|reggae|0.547423|0.490722|0.479381|
-|rock|0.558163|0.581633|0.558163|
+| genres  | stft score | cqt score | cens score |
+|---------|------------|-----------|------------|
+| blues   | 0.112245   | 0.174490  | 0.170408   |
+| country | 0.683838   | 0.768687  | 0.753535   |
+| disco   | 0.451020   | 0.457143  | 0.481633   |
+| hiphop  | 0.111111   | 0.185185  | 0.204938   |
+| jazz    | 0.455696   | 0.430380  | 0.388608   |
+| metal   | 0.155914   | 0.170968  | 0.201075   |
+| pop     | 0.538298   | 0.439362  | 0.448936   |
+| reggae  | 0.547423   | 0.490722  | 0.479381   |
+| rock    | 0.558163   | 0.581633  | 0.558163   |
 
 - KS Template
 
-| genres|stft score|cqt score|cens score|
-|-------|----------|---------|----------|
-|blues|0.326531|0.334694|0.286735|
-|country|0.668687|0.795960|0.747474|
-|disco|0.534694|0.614286|0.584694|
-|hiphop|0.316049|0.320988|0.302469|
-|jazz|0.408861|0.475949|0.445570|
-|metal|0.507527|0.598925|0.579570|
-|pop|0.6808512|0.638298|0.607447|
-|reggae|0.626804|0.594845|0.537113|
-|rock|0.592857|0.685714|0.673469|
+| genres  | stft score | cqt score | cens score |
+|---------|------------|-----------|------------|
+| blues   | 0.326531   | 0.334694  | 0.286735   |
+| country | 0.668687   | 0.795960  | 0.747474   |
+| disco   | 0.534694   | 0.614286  | 0.584694   |
+| hiphop  | 0.316049   | 0.320988  | 0.302469   |
+| jazz    | 0.408861   | 0.475949  | 0.445570   |
+| metal   | 0.507527   | 0.598925  | 0.579570   |
+| pop     | 0.680851   | 0.638298  | 0.607447   |
+| reggae  | 0.626804   | 0.594845  | 0.537113   |
+| rock    | 0.592857   | 0.685714  | 0.673469   |
 
 - Harmonic Template
 
-| genres|stft score|cqt score|cens score|
-|-------|----------|---------|----------|
-|blues|0.184694|0.252041|0.197959|
-|country|0.811111|0.573737|0.636364|
-|disco|0.512245|0.464286|0.427551|
-|hiphop|0.129630|0.220988|0.208642|
-|jazz|0.432911|0.441772|0.435443|
-|metal|0.236559|0.348387|0.320430|
-|pop|0.578723|0.309574|0.377660|
-|reggae|0.527835|0.490722|0.448454|
-|rock|0.593878|0.511224|0.526531|
+| genres  | stft score | cqt score | cens score |
+|---------|------------|-----------|------------|
+| blues   | 0.184694   | 0.252041  | 0.197959   |
+| country | 0.811111   | 0.573737  | 0.636364   |
+| disco   | 0.512245   | 0.464286  | 0.427551   |
+| hiphop  | 0.129630   | 0.220988  | 0.208642   |
+| jazz    | 0.432911   | 0.441772  | 0.435443   |
+| metal   | 0.236559   | 0.348387  | 0.320430   |
+| pop     | 0.578723   | 0.309574  | 0.377660   |
+| reggae  | 0.527835   | 0.490722  | 0.448454   |
+| rock    | 0.593878   | 0.511224  | 0.526531   |
 
 ### Q2 (30%)
 Repeat the process in Q1 on the MIDI data and all the available audio versions (i.e., HU33, SC06, FI66, FI80) of the Schubert Winterreise Dataset. Report the average raw accuracy and weighted accuracy for each version. Is there any difference among the versions? Are MIDI data easier for key finding? Discuss your results.
@@ -118,11 +118,11 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 - Problem
     - `librosa.load` doesn't support mp3 files
 - Solve
-    - download ffmpeg package [here]()
+    - download ffmpeg package [here](https://drive.google.com/drive/folders/18EjrdBXhrhj_8K3yiaBWIl5x8WyQLQX1?usp=sharing)
     - put the `FFmpeg` folder in `C:\`
     - add `C:\FFmpeg\bin` to path (system variables)
         - win + s
-        - search system variables
+        - search `system variables`
         - system: path
         - click New
         - paste `C:\FFmpeg\bin`
@@ -148,10 +148,10 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 
 |Version|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
-| FI66 |  |  |  |
-| FI80 |  |  |  |
-| HU33 |  |  |  |
-| SC06 |  |  |  |
+| FI66 | 0.545833 | 0.737500 | 0.675000 |
+| FI80 | 0.687500 | 0.800000 | 0.825000 |
+| HU33 | 0.612500 | 0.687500 | 0.666667 |
+| SC06 | 0.666667 | 0.654167 | 0.645833 |
 
 - Harmonic Template
     - midi
