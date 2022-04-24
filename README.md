@@ -174,6 +174,44 @@ Construct the templates for the 24 major/minor keys using the GiantStep dataset.
 ### Q4 (20%)
 Based on Task 1, design a local key detector that outputs the key of the music every 0.1 second. That means, there is a key detection output for every time step, and in this task, we set the time step be 0.1 second. Perform your method one the MIDI data and all the available audio versions of the Schubert Winterreise Dataset. For simplicity, let’s evaluate the results against the annotator 1. Report the raw accuracy and the weighted accuracy.
 - Hint: to get the local tonality feature, you may consider the mean-pooled chroma of a segment (maybe 30 seconds or so), not of the whole music piece. For example, the feature representing the local key at the 60th second can be obtained by summing up the chorma vectors from the 45th to the 75th second.You may try the optimal segment size empirically.
+
+#### Result
+- Binary Template
+    - midi
+        - score: 
+    - audio
+
+|Version|stft score|cqt score|cens score|
+|-------|----------|---------|----------|
+| FI66 | 0.154255 | 0.189565 | 0.185779 |
+| FI80 | 0.138596 | 0.181742 | 0.183270 |
+| HU33 | 0.153278 | 0.181481 | 0.179828 |
+| SC06 | 0.163004 | 0.176554 | 0.174731 |
+
+- KS Template
+    - midi
+        - score: 
+    - audio
+
+|Version|stft score|cqt score|cens score|
+|-------|----------|---------|----------|
+| FI66 |  |  |  |
+| FI80 |  |  |  |
+| HU33 |  |  |  |
+| SC06 |  |  |  |
+
+- Harmonic Template
+    - midi
+        - score: 
+    - audio
+
+|Version|stft score|cqt score|cens score|
+|-------|----------|---------|----------|
+| FI66 |  |  |  |
+| FI80 |  |  |  |
+| HU33 |  |  |  |
+| SC06 |  |  |  |
+
 ### Q5 (10%)
 The local key detection problem can be regarded as a segmentation problem. There has been evaluation metrics for the segmentation performance in the chord recognition problem, but such metrics have not been applied in local key detection. Please apply the over-segmentation, under-segmentation and average segmentation measures (please refer to the directional Hamming divergence and see page 33 in Lecture 3 slides) on the local key detection of the Schubert Winterreise Dataset.
 - Hint: these metrics have been implemented somewhere in mir_eval.chord.
