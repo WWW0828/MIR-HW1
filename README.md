@@ -195,10 +195,10 @@ Based on Task 1, design a local key detector that outputs the key of the music e
 
 |Version|stft score|cqt score|cens score|
 |-------|----------|---------|----------|
-| FI66 |  |  |  |
-| FI80 |  |  |  |
-| HU33 |  |  |  |
-| SC06 |  |  |  |
+| FI66 | 0.057928 | 0.067709 | 0.066258 |
+| FI80 | 0.055634 | 0.062224 | 0.062917 |
+| HU33 | 0.054001 | 0.066112 | 0.067085 |
+| SC06 | 0.064432 | 0.062758 | 0.062873 |
 
 - Harmonic Template
     - midi

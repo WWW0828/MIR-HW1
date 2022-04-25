@@ -119,13 +119,19 @@ for v_id, v in enumerate(versions):
 
                 # calculate R
                 # find biggest R
-                for i,bt in enumerate(template.binary_template):
-                    r = scipy.stats.pearsonr(bin_avg, bt)[0]
+                tonic_str = ''
+                for i,ks in enumerate(template.KS_major_template):
+                    r = scipy.stats.pearsonr(bin_avg, ks)[0]
                     if r > max_r or i == 0:
                         max_r = r
-                        max_bin = i
+                        tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
 
-                tonic_str = ''
+                for i,ks in enumerate(template.KS_minor_template):
+                    r = scipy.stats.pearsonr(bin_avg, ks)[0]
+                    if r > max_r:
+                        max_r = r
+                        tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
+                    
                 # check energy of M and m
                 if bin_avg[template.minor[max_bin]] > bin_avg[max_bin]:
                     tonic_str = template.tonic[template.minor[max_bin]] + ' ' + template.tonic[-1]
