@@ -12,6 +12,8 @@ folder_path = "SWD/01_RawData/score_midi"
 files = listdir(folder_path)
 
 score = 0
+rawscore = 0
+
 num_of_file = len(files)
 
 ans_list = []
@@ -56,7 +58,9 @@ for file_id, f in enumerate(files):
             tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
 
 
-    score += mir_eval.key.evaluate(ans_list[file_id], tonic_str)['Weighted Score']
+    if ans_list[file_id] == tonic_str:
+        rawscore += 1
     
 print('score: {}'.format(score/num_of_file))
+print('raw score: {}'.format(rawscore/num_of_file))
     

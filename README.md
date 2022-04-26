@@ -134,36 +134,76 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
         - score: 0.641667
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 | 0.512500 | 0.812500 | 0.783333 |
-| FI80 | 0.445833 | 0.645833 | 0.625000 |
-| HU33 | 0.625000 | 0.791667 | 0.741667 |
-| SC06 | 0.554167 | 0.754167 | 0.716667 |
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.512500 | 0.812500 | 0.783333 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.445833 | 0.645833 | 0.625000 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.625000 | 0.791667 | 0.741667 |
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.554167 | 0.754167 | 0.716667 |
 
 - KS Template
     - midi
         - score: 0.791667
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 | 0.545833 | 0.737500 | 0.675000 |
-| FI80 | 0.687500 | 0.800000 | 0.825000 |
-| HU33 | 0.612500 | 0.687500 | 0.666667 |
-| SC06 | 0.666667 | 0.654167 | 0.645833 |
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.545833 | 0.737500 | 0.675000 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.687500 | 0.800000 | 0.825000 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.612500 | 0.687500 | 0.666667 |
+
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.666667 | 0.654167 | 0.645833 |
 
 - Harmonic Template
     - midi
         - score: 0.545833
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 | 0.687500 | 0.862500 | 0.800000 |
-| FI80 | 0.433333 | 0.625000 | 0.687500 |
-| HU33 | 0.708333 | 0.666667 | 0.708333 |
-| SC06 | 0.595833 | 0.695833 | 0.725000 |
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.687500 | 0.862500 | 0.800000 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.433333 | 0.625000 | 0.687500 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.708333 | 0.666667 | 0.708333 |
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0. | 0. | 0. |
+| Weighted Score | 0.595833 | 0.695833 | 0.725000 |
 
 ### Q3 (bonus)
 Construct the templates for the 24 major/minor keys using the GiantStep dataset. There are many possible ways to construct the templates. There can also be multiple templates for each key. For example, the template of D major can be constructed by taking the average over all chroma vectors annotated as D major in the dataset. We can also take the 𝑘-means algorithm over these chroma vectors to obtain 𝑘 templates for D major. For the keys not in the dataset, you may consider constructing them by circular shifting from the existing keys. Perform global key finding on the GTZAN dataset using the data-driven template. Does this method benefit some genres? Discuss your results.
@@ -178,39 +218,81 @@ Based on Task 1, design a local key detector that outputs the key of the music e
 #### Result
 - Binary Template
     - midi
-        - score: 
+        - raw score: 0.284833
+        - weighted score: 0.392373
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 | 0.154255 | 0.189565 | 0.185779 |
-| FI80 | 0.138596 | 0.181742 | 0.183270 |
-| HU33 | 0.153278 | 0.181481 | 0.179828 |
-| SC06 | 0.163004 | 0.176554 | 0.174731 |
+| Raw Score      | 0.352545 | 0.476774 | 0.457754 |
+| Weighted Score | 0.462765 | 0.568695 | 0.557338 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.270589 | 0.442495 | 0.447367 |
+| Weighted Score | 0.415788 | 0.545226 | 0.549810 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.329863 | 0.407404 | 0.396115 |
+| Weighted Score | 0.459833 | 0.544442 | 0.539484 |
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.375475 | 0.430014 | 0.411920 |
+| Weighted Score | 0.489013 | 0.529662 | 0.524196 |
 
 - KS Template
     - midi
-        - score: 
+        - raw score: 0.323035
+        - weighted score: 0.431144
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 | 0.057928 | 0.067709 | 0.066258 |
-| FI80 | 0.055634 | 0.062224 | 0.062917 |
-| HU33 | 0.054001 | 0.066112 | 0.067085 |
-| SC06 | 0.064432 | 0.062758 | 0.062873 |
+| Raw Score      | 0.383775 | 0.486213 | 0.482533 |
+| Weighted Score | 0.488220 | 0.612124 | 0.612165 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.506278 | 0.560058 | 0.554226 |
+| Weighted Score | 0.600630 | 0.671400 | 0.666155 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.399670 | 0.397817 | 0.413261 |
+| Weighted Score | 0.523297 | 0.538107 | 0.547135 |
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.429680 | 0.453917 | 0.443199 |
+| Weighted Score | 0.540017 | 0.577300 | 0.570605 |
 
 - Harmonic Template
     - midi
-        - score: 
+        - raw score: 0.306012
+        - weighted score: 0.407218
     - audio
 
-|Version|stft score|cqt score|cens score|
+| FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| FI66 |  |  |  |
-| FI80 |  |  |  |
-| HU33 |  |  |  |
-| SC06 |  |  |  |
+| Raw Score      | 0.444277 | 0.510992 | 0.571802 |
+| Weighted Score | 0.518311 | 0.574258 | 0.588953 |
+
+| FI80  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.367774 | 0.482104 | 0.495713 |
+| Weighted Score | 0.475382 | 0.545973 | 0.565607 |
+
+| HU33  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.363252 | 0.473732 | 0.486672 |
+| Weighted Score | 0.471732 | 0.560173 | 0.578730 |
+
+| SC06  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.377891 | 0.446206 | 0.443225 |
+| Weighted Score | 0.472013 | 0.511093 | 0.515100 |
 
 ### Q5 (10%)
 The local key detection problem can be regarded as a segmentation problem. There has been evaluation metrics for the segmentation performance in the chord recognition problem, but such metrics have not been applied in local key detection. Please apply the over-segmentation, under-segmentation and average segmentation measures (please refer to the directional Hamming divergence and see page 33 in Lecture 3 slides) on the local key detection of the Schubert Winterreise Dataset.

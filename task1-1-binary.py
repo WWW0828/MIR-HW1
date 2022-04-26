@@ -10,6 +10,9 @@ genres = ["blues", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae
 scores_stft = []
 scores_cqt = []
 scores_cens = []
+raw_scores_stft = []
+raw_scores_cqt = []
+raw_scores_cens = []
 
 for g_id, g in enumerate(genres):
 
@@ -19,6 +22,7 @@ for g_id, g in enumerate(genres):
     files = listdir(folder_path)
 
     score_stft, score_cqt, score_cens = 0, 0, 0
+    raw_score_stft, raw_score_cqt, raw_score_cens = 0, 0, 0
     num_of_file = len(files)
 
     for file_id, f in enumerate(files):
@@ -71,14 +75,23 @@ for g_id, g in enumerate(genres):
 
             if id == 0:
                 score_stft += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
+                if ans_str == tonic_str:
+                    raw_score_stft += 1
             elif id == 1:
                 score_cqt += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
+                if ans_str == tonic_str:
+                    raw_score_cqt += 1
             else:
                 score_cens += mir_eval.key.evaluate(ans_str, tonic_str)['Weighted Score']
-            
+                if ans_str == tonic_str:
+                    raw_score_cens += 1
+    
     scores_stft.append(score_stft/num_of_file)
     scores_cqt.append(score_cqt/num_of_file)
     scores_cens.append(score_cens/num_of_file)   
-    
-    print('score: stft {}, cqt {}, cens {}'.format(scores_stft[g_id], scores_cqt[g_id], scores_cens[g_id]))
-    
+    raw_scores_stft.append(raw_score_stft/num_of_file)
+    raw_scores_cqt.append(raw_score_cqt/num_of_file)
+    raw_scores_cens.append(raw_score_cens/num_of_file)   
+        
+    print('wei score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(g, scores_stft[g_id], scores_cqt[g_id], scores_cens[g_id]))
+    print('raw score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(g, raw_scores_stft[g_id], raw_scores_cqt[g_id], raw_scores_cens[g_id]))

@@ -11,6 +11,9 @@ versions = ['FI66', 'FI80', 'HU33', 'SC06']
 scores_stft = []
 scores_cqt = []
 scores_cens = []
+raw_scores_stft = []
+raw_scores_cqt = []
+raw_scores_cens = []
 
 time_window = 150   # 0.1 sec
 
@@ -22,7 +25,9 @@ for v_id, v in enumerate(versions):
     files = listdir(folder_path)
 
     score_stft, score_cqt, score_cens = 0, 0, 0
-    num_of_frame = 0
+    raw_score_stft, raw_score_cqt, raw_score_cens = 0, 0, 0
+    
+    num_of_frame = [0, 0, 0]
 
     ann1_folder = 'SWD/02_Annotations/ann_audio_localkey-ann1-' + v
     ann1_files = listdir(ann1_folder)
@@ -95,7 +100,7 @@ for v_id, v in enumerate(versions):
                 
                 # print('frame:', frame)
                 
-                num_of_frame += 1
+                num_of_frame[id] += 1
                 
                 bin_avg = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 
@@ -140,19 +145,26 @@ for v_id, v in enumerate(versions):
 
                 answer_str = ans_song_list[ans_cur][1]
 
-                # if flag:
-                #     print('frame: {}, answer: {}'.format(frame, answer_str))
-
                 if id == 0:
                     score_stft += mir_eval.key.evaluate(answer_str, tonic_str)['Weighted Score']
+                    if answer_str == tonic_str:
+                        raw_score_stft += 1
                 elif id == 1:
                     score_cqt += mir_eval.key.evaluate(answer_str, tonic_str)['Weighted Score']
+                    if answer_str == tonic_str:
+                        raw_score_cqt += 1
                 else:
                     score_cens += mir_eval.key.evaluate(answer_str, tonic_str)['Weighted Score']
+                    if answer_str == tonic_str:
+                        raw_score_cens += 1
 
-    scores_stft.append(score_stft/num_of_frame)
-    scores_cqt.append(score_cqt/num_of_frame)
-    scores_cens.append(score_cens/num_of_frame)   
+    scores_stft.append(score_stft/num_of_frame[0])
+    scores_cqt.append(score_cqt/num_of_frame[1])
+    scores_cens.append(score_cens/num_of_frame[2]) 
+    raw_scores_stft.append(raw_score_stft/num_of_frame[0])
+    raw_scores_cqt.append(raw_score_cqt/num_of_frame[1])
+    raw_scores_cens.append(raw_score_cens/num_of_frame[2])   
     
-    print('score: stft {}, cqt {}, cens {}'.format(scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
+    print('wei score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
+    print('raw score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, raw_scores_stft[v_id], raw_scores_cqt[v_id], raw_scores_cens[v_id]))
     

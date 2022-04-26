@@ -27,7 +27,6 @@ for v_id, v in enumerate(versions):
     score_stft, score_cqt, score_cens = 0, 0, 0
     raw_score_stft, raw_score_cqt, raw_score_cens = 0, 0, 0
 
-
     num_of_frame = [0, 0, 0]
 
     ann1_folder = 'SWD/02_Annotations/ann_audio_localkey-ann1-' + v
@@ -125,24 +124,28 @@ for v_id, v in enumerate(versions):
 
                 # calculate R
                 # find biggest R
+                
                 tonic_str = ''
-                for i,ks in enumerate(template.KS_major_template):
+                for i,ks in enumerate(template.HM_major_template):
                     r = scipy.stats.pearsonr(bin_avg, ks)[0]
                     if r > max_r or i == 0:
+                        max_bin = i
                         max_r = r
                         tonic_str = template.tonic[i] + ' ' + template.tonic[-2]
 
-                for i,ks in enumerate(template.KS_minor_template):
+                for i,ks in enumerate(template.HM_minor_template):
                     r = scipy.stats.pearsonr(bin_avg, ks)[0]
-                    if r > max_r:
+                    if r > max_r or (r == max_r and bin_avg[i] > bin_avg[max_bin]):
+                        max_bin = i
                         max_r = r
                         tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
-                    
+        
                 if ans_cur < len(ans_song_list) - 1:
                     if ans_song_list[ans_cur + 1][0] <= frame:
                         ans_cur += 1
 
                 answer_str = ans_song_list[ans_cur][1]
+                
                 if id == 0:
                     score_stft += mir_eval.key.evaluate(answer_str, tonic_str)['Weighted Score']
                     if answer_str == tonic_str:
@@ -163,6 +166,6 @@ for v_id, v in enumerate(versions):
     raw_scores_cqt.append(raw_score_cqt/num_of_frame[1])
     raw_scores_cens.append(raw_score_cens/num_of_frame[2])   
     
-    print('wei score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
-    print('raw score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, raw_scores_stft[v_id], raw_scores_cqt[v_id], raw_scores_cens[v_id]))
+    print('wei score: | {:.6f} | {:.6f} | {:.6f} |'.format(scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
+    print('raw score: | {:.6f} | {:.6f} | {:.6f} |'.format(raw_scores_stft[v_id], raw_scores_cqt[v_id], raw_scores_cens[v_id]))
     
