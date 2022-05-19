@@ -91,6 +91,6 @@ for v_id, v in enumerate(versions):
     raw_scores_cqt.append(raw_score_cqt/num_of_file)
     raw_scores_cens.append(raw_score_cens/num_of_file)   
     
-    print('wei score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
-    print('raw score: | {} | {:.6f} | {:.6f} | {:.6f} |'.format(v, raw_scores_stft[v_id], raw_scores_cqt[v_id], raw_scores_cens[v_id]))
+    print('| Raw Score      | {:.6f} | {:.6f} | {:.6f} |'.format(raw_scores_stft[v_id], raw_scores_cqt[v_id], raw_scores_cens[v_id]))
+    print('| Weighted Score | {:.6f} | {:.6f} | {:.6f} |'.format(scores_stft[v_id], scores_cqt[v_id], scores_cens[v_id]))
     

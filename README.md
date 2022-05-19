@@ -72,45 +72,144 @@ Perform global key finding on the 9 genres in the GTZAN dataset using the featur
 #### Result
 - Binary Template
 
-| genres  | stft score | cqt score | cens score |
-|---------|------------|-----------|------------|
-| blues   | 0.112245   | 0.174490  | 0.170408   |
-| country | 0.683838   | 0.768687  | 0.753535   |
-| disco   | 0.451020   | 0.457143  | 0.481633   |
-| hiphop  | 0.111111   | 0.185185  | 0.204938   |
-| jazz    | 0.455696   | 0.430380  | 0.388608   |
-| metal   | 0.155914   | 0.170968  | 0.201075   |
-| pop     | 0.538298   | 0.439362  | 0.448936   |
-| reggae  | 0.547423   | 0.490722  | 0.479381   |
-| rock    | 0.558163   | 0.581633  | 0.558163   |
+| blues    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.051020 | 0.071429 | 0.081633 |
+| Weighted Score | 0.112245   | 0.174490  | 0.170408   |
+
+| country   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.464646 | 0.656566 | 0.646465 |
+| Weighted Score | 0.683838   | 0.768687  | 0.753535   |
+
+| disco    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.326531 | 0.357143 | 0.387755 |
+| Weighted Score | 0.451020   | 0.457143  | 0.481633   |
+
+| hiphop    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.061728 | 0.123457 | 0.135802 |
+| Weighted Score | 0.111111   | 0.185185  | 0.204938   |
+
+| jazz    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.278481 | 0.303797 | 0.253165 |
+| Weighted Score | 0.455696   | 0.430380  | 0.388608   |
+
+| metal    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.086022 | 0.096774 | 0.118280 |
+| Weighted Score | 0.155914   | 0.170968  | 0.201075   |
+
+| pop    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.404255 | 0.372340 | 0.372340 |
+| Weighted Score | 0.538298   | 0.439362  | 0.448936   |
+ 
+| reggae    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.422680 | 0.381443 | 0.381443 |
+| Weighted Score | 0.547423   | 0.490722  | 0.479381   |
+
+| rock    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.408163 | 0.500000 | 0.469388 |
+| Weighted Score | 0.558163   | 0.581633  | 0.558163   |
 
 - KS Template
 
-| genres  | stft score | cqt score | cens score |
-|---------|------------|-----------|------------|
-| blues   | 0.326531   | 0.334694  | 0.286735   |
-| country | 0.668687   | 0.795960  | 0.747474   |
-| disco   | 0.534694   | 0.614286  | 0.584694   |
-| hiphop  | 0.316049   | 0.320988  | 0.302469   |
-| jazz    | 0.408861   | 0.475949  | 0.445570   |
-| metal   | 0.507527   | 0.598925  | 0.579570   |
-| pop     | 0.680851   | 0.638298  | 0.607447   |
-| reggae  | 0.626804   | 0.594845  | 0.537113   |
-| rock    | 0.592857   | 0.685714  | 0.673469   |
+| blues  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.234694 | 0.214286 | 0.173469 |
+| Weighted Score | 0.326531   | 0.334694  | 0.286735   |
+
+| country   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.474747 | 0.676768 | 0.595960 |
+| Weighted Score | 0.668687   | 0.795960  | 0.747474   |
+
+| disco   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.367347 | 0.510204 | 0.479592 |
+| Weighted Score | 0.534694   | 0.614286  | 0.584694   |
+
+| hiphop   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.209877 | 0.234568 | 0.222222 |
+| Weighted Score | 0.316049   | 0.320988  | 0.302469   |
+
+| jazz    | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.278481 | 0.354430 | 0.303797 |
+| Weighted Score | 0.408861   | 0.475949  | 0.445570   |
+
+| metal   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.387097 | 0.537634 | 0.516129 |
+| Weighted Score | 0.507527   | 0.598925  | 0.579570   |
+
+| pop     | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.585106 | 0.563830 | 0.521277 |
+| Weighted Score | 0.680851   | 0.638298  | 0.607447   |
+
+| reggae   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.536082 | 0.505155 | 0.453608 |
+| Weighted Score | 0.626804   | 0.594845  | 0.537113   |
+
+| rock     | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.438776 | 0.591837 | 0.571429 |
+| Weighted Score | 0.592857   | 0.685714  | 0.673469   |
 
 - Harmonic Template
 
-| genres  | stft score | cqt score | cens score |
-|---------|------------|-----------|------------|
-| blues   | 0.184694   | 0.252041  | 0.197959   |
-| country | 0.811111   | 0.573737  | 0.636364   |
-| disco   | 0.512245   | 0.464286  | 0.427551   |
-| hiphop  | 0.129630   | 0.220988  | 0.208642   |
-| jazz    | 0.432911   | 0.441772  | 0.435443   |
-| metal   | 0.236559   | 0.348387  | 0.320430   |
-| pop     | 0.578723   | 0.309574  | 0.377660   |
-| reggae  | 0.527835   | 0.490722  | 0.448454   |
-| rock    | 0.593878   | 0.511224  | 0.526531   |
+| blues  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.102041 | 0.142857 | 0.091837 |
+| Weighted Score | 0.184694   | 0.252041  | 0.197959   |
+
+| country  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.737374 | 0.525253 | 0.585859 |
+| Weighted Score | 0.811111   | 0.573737  | 0.636364   |
+
+| disco   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.448980 | 0.408163 | 0.377551 |
+| Weighted Score | 0.512245   | 0.464286  | 0.427551   |
+
+| hiphop  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.074074 | 0.160494 | 0.148148 |
+| Weighted Score | 0.129630   | 0.220988  | 0.208642   |
+
+| jazz   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.303797 | 0.354430 | 0.367089 |
+| Weighted Score | 0.432911   | 0.441772  | 0.435443   |
+
+| metal  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.161290 | 0.301075 | 0.258065 |
+| Weighted Score | 0.236559   | 0.348387  | 0.320430   |
+
+| pop   | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.510638 | 0.244681 | 0.319149 |
+| Weighted Score | 0.578723   | 0.309574  | 0.377660   |
+
+| reggae  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.453608 | 0.443299 | 0.391753 |
+| Weighted Score | 0.527835   | 0.490722  | 0.448454   |
+
+| rock  | STFT | CQT | CENS |
+|-------|----------|---------|----------|
+| Raw Score      | 0.520408 | 0.448980 | 0.479592 |
+| Weighted Score | 0.593878   | 0.511224  | 0.526531   |
 
 ### Q2 (30%)
 Repeat the process in Q1 on the MIDI data and all the available audio versions (i.e., HU33, SC06, FI66, FI80) of the Schubert Winterreise Dataset. Report the average raw accuracy and weighted accuracy for each version. Is there any difference among the versions? Are MIDI data easier for key finding? Discuss your results.
@@ -131,79 +230,83 @@ Repeat the process in Q1 on the MIDI data and all the available audio versions (
 #### Result
 - Binary Template
     - midi
-        - score: 0.641667
+        - raw score: 0.583333
+        - weighted score: 0.641667
     - audio
 
 | FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.416667 | 0.791667 | 0.750000 |
 | Weighted Score | 0.512500 | 0.812500 | 0.783333 |
 
 | FI80  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.291667 | 0.583333 | 0.541667 |
 | Weighted Score | 0.445833 | 0.645833 | 0.625000 |
 
 | HU33  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.541667 | 0.708333 | 0.666667 |
 | Weighted Score | 0.625000 | 0.791667 | 0.741667 |
 
 | SC06  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.500000 | 0.708333 | 0.666667 |
 | Weighted Score | 0.554167 | 0.754167 | 0.716667 |
 
 - KS Template
     - midi
-        - score: 0.791667
+        - raw score: 0.75
+        - weighted score: 0.791667
     - audio
 
 | FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.416667 | 0.625000 | 0.541667 |
 | Weighted Score | 0.545833 | 0.737500 | 0.675000 |
 
 | FI80  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.625000 | 0.750000 | 0.791667 |
 | Weighted Score | 0.687500 | 0.800000 | 0.825000 |
 
 | HU33  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.500000 | 0.583333 | 0.541667 |
 | Weighted Score | 0.612500 | 0.687500 | 0.666667 |
-
 
 | SC06  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.583333 | 0.541667 | 0.541667 |
 | Weighted Score | 0.666667 | 0.654167 | 0.645833 |
 
 - Harmonic Template
     - midi
-        - score: 0.545833
+        - raw score: 0.5
+        - weighted score: 0.545833
     - audio
 
 | FI66  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.666667 | 0.833333 | 0.750000 |
 | Weighted Score | 0.687500 | 0.862500 | 0.800000 |
 
 | FI80  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
-| Weighted Score | 0.433333 | 0.625000 | 0.687500 |
+| Raw Score      | 0.416667 | 0.583333 | 0.625000 |
+| Weighted Score | 0.483333 | 0.625000 | 0.687500 |
 
 | HU33  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.666667 | 0.583333 | 0.625000 |
 | Weighted Score | 0.708333 | 0.666667 | 0.708333 |
 
 | SC06  | STFT | CQT | CENS |
 |-------|----------|---------|----------|
-| Raw Score      | 0. | 0. | 0. |
+| Raw Score      | 0.541667 | 0.666667 | 0.666667 |
 | Weighted Score | 0.595833 | 0.695833 | 0.725000 |
+
+
 
 ### Q3 (bonus)
 Construct the templates for the 24 major/minor keys using the GiantStep dataset. There are many possible ways to construct the templates. There can also be multiple templates for each key. For example, the template of D major can be constructed by taking the average over all chroma vectors annotated as D major in the dataset. We can also take the 𝑘-means algorithm over these chroma vectors to obtain 𝑘 templates for D major. For the keys not in the dataset, you may consider constructing them by circular shifting from the existing keys. Perform global key finding on the GTZAN dataset using the data-driven template. Does this method benefit some genres? Discuss your results.

@@ -57,7 +57,7 @@ for file_id, f in enumerate(files):
             max_r = r
             tonic_str = template.tonic[i] + ' ' + template.tonic[-1]
 
-
+    score += mir_eval.key.evaluate(ans_list[file_id], tonic_str)['Weighted Score']
     if ans_list[file_id] == tonic_str:
         rawscore += 1
     
